@@ -81,10 +81,7 @@ bottom {
     top: 100vh;
     border-top: 3px solid black;
     background-color: whitesmoke;
-    height: 100vh;
-
     padding: 10px 20%;
-    
 }
 
 .button-1 {
@@ -131,4 +128,10 @@ h1 {
 p {
     font-family: lora;
     color: #38000A;
+}
+
+.signature {
+    font-family: Ms madi;
+    font-size: xx-large;
+    text-align: right;
 }
