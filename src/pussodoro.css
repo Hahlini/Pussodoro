@@ -1,50 +1,70 @@
 box {
-    background-color: whitesmoke;
-    display: block;
-    width: 40%;
-    border-radius: 10px;
-    border: 3px solid black;
+    background-color: #FFA896;
+    width: 70%;
+    max-width: 500px;
+    border-radius: 20px;
+    border: 0px solid black;
     opacity: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20%;
-    padding: 15px;
-    text-align: center;
 }
 
 body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(to right, #BD2734, #851D2D);
-    /* Gradient going from orange to peach */
+    background: linear-gradient(to right, #cd1c18, #9b1313);
+    color: #38000A;
+    font-family: Lora;
+}
+
+.item {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    display: block;
 }
 
 brand {
+    max-width: 100%;
     display: block;
-    font-size: 6vw;
+    font-size: max(10vw, min(70px, 17vw));
+    
     margin-bottom: 10px;
+    font-family: cherry bomb one;
+    color: #FFA896;
 }
 
 timer {
     display: block;
-    font-size: 8vw;
+    font-size: 400%;
+    padding-top: 10px;
 }
 
 text {
-    display: block;
-    text-align: left;
-    font-size: 3vw;
-    margin-left: 2vw;
+    font-size: xx-large;
+    line-height: 45px;
+}
+
+bottom {
+    width: 60%;
+    position: absolute;
+    top: 100vh;
+    border-top: 3px solid black;
+    background-color: whitesmoke;
+    height: 100vh;
+
+    padding: 10px 20%;
+    
 }
 
 .button-1 {
-  background-color: #9f2131;
+  background-color: #cd1c18;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #FFA896;
   cursor: pointer;
   display: inline-block;
+  font-family: lora;
   font-size: 30px;
   font-weight: 500;
   height: 60px;
@@ -62,9 +82,22 @@ text {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-top: 15px; 
+  margin-bottom: 10px
 }
 
 .button-1:hover,
 .button-1:focus {
   background-color: #F082AC;
+}
+
+h1 {
+    color: #9b1313;
+    font-family: rubik;
+    font-weight: 500;
+
+}
+
+p {
+    font-family: lora;
+    color: #38000A;
 }

@@ -7,33 +7,50 @@
     <link rel="stylesheet" href="pussodoro.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.min.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Ms+Madi&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    
+    <brand class="item">
+        Pussoduro    
+    </brand>
 
-<box id="box">
+    <box id="box" style="padding-top: 20px;" class="item">
 
-   <brand>
-        Pussodoro ❤️‍🔥
-   </brand>
+        <text id="topText">
+            Starta timern!
+        </text>
+        <timer id="timer">
+            00:00
+        </timer>
 
-   <text id="topText">
-        Appen som låter dig fokusera och längta efter din käresta.
-   </text>
-    <timer id="timer">
-    </timer>
+        <div id="buttonContainer">
+            <button onclick="start()" class="button-1" id="button">
+                Start
+            </button>
+        </div>
+    </box>
 
-    <text id="botText">
-    </text>
+    <bottom>
+        <h1>
+            Pussoduro
+        </h1>
 
-    <button onclick="start()" class="button-1" id="button">
-        Start
-    </button>
+        <p>
+            Här beskriver vi Pomodoro och Pussodoro
+        </p>
+        
+        <p>
+            Gud vad jag älskar dig megamycket osv... tillägnat Jenna.
+        </p>
+
+        <p class ="signature">
+            Din Jojo
+        </p>
+    </bottom>
 
     <script src="script.js"></script>
-
-</box>
-
-
-
 </body>
 </html>
