@@ -10,7 +10,9 @@ let isStudying = true;
 
 const startButton = document.getElementById("button");
 const resetButton = document.createElement("button");
-const buttonContainer = document.getElementById("box");
+const buttonContainer = document.getElementById("buttonContainer");
+const textBox = document.getElementById("textBox");
+const text = document.getElementById("text");
 
 resetButton.textContent = "Reset"
 resetButton.className = "button-1"
@@ -52,14 +54,10 @@ function tick(){
 }
 
 function switchMode(){
+    document.getElementById("topText").textContent = isStudying ? "Ha så kul 😘" : "Dags att jobba";
+
     setTime(isStudying ? funTime : studyTime);
-
-    document.getElementById("topText").textContent = isStudying ? "Nu är det dags för paus!" : "Dags att jobba igen, men om...";
-    document.getElementById("botText").textContent = isStudying ? "... ha så kul 😘" : "kan ni ha kul igen...";
-
     isStudying = !isStudying;
-
-
 }
 
 function setTime(time){
@@ -72,10 +70,9 @@ function start() {
     isStudying = true;
     setTime(studyTime);
     updateText(hours, minutes)
-    setInterval(tick, 1000);
-    document.getElementById("topText").textContent = "Dags att jobba, men om...";
-    document.getElementById("botText").textContent = "kan ni ha kul...";
-
+    setInterval(tick, 10);
+    document.getElementById("topText").textContent = "Dags att jobba";
+    //textBox.style.visibility = "visible";
     startButton.remove()
     buttonContainer.appendChild(resetButton);
 }

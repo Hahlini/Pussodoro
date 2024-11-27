@@ -10,28 +10,35 @@
 </head>
 <body>
 
-<box id="box">
+    <box style="margin-top:10%">
+        <brand>
+            Pussodoro ❤️‍🔥
+    </brand>
+    </box>
 
-   <brand>
-        Pussodoro ❤️‍🔥
-   </brand>
+    <box id="box" style="padding-top: 20px;">
 
-   <text id="topText">
-        Appen som låter dig fokusera och längta efter din käresta.
-   </text>
-    <timer id="timer">
-    </timer>
+        <text id="topText">
+            Starta timern!
+        </text>
+        <timer id="timer">
+            00:00
+        </timer>
 
-    <text id="botText">
-    </text>
+        <div id="buttonContainer">
+            <button onclick="start()" class="button-1" id="button">
+                Start
+            </button>
+        </div>
+    </box>
 
-    <button onclick="start()" class="button-1" id="button">
-        Start
-    </button>
+    <box style="visibility: hidden;" id="textBox">
+        <text id="text">
+            Text!
+        </text>
+    </box>
 
     <script src="script.js"></script>
-
-</box>
 
 
 
