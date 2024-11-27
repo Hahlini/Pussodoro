@@ -16,7 +16,7 @@ const text = document.getElementById("text");
 
 resetButton.textContent = "Reset"
 resetButton.className = "button-1"
-resetButton.onclick = start;
+resetButton.onclick = reset;
 
 
 /*
@@ -48,7 +48,7 @@ function tick(){
         }
     }
     updateText(hours, minutes)
-    if (seconds == 0 && minutes == 0 && hours == 0) {
+    if (minutes == 0 && hours == 0) {
         switchMode();
     }
 }
@@ -62,11 +62,12 @@ function switchMode(){
 
 function setTime(time){
     hours = 0;
-    seconds = 30;
+    seconds = 59;
     minutes = time
 }
 
 function start() {
+    readTimes()
     isStudying = true;
     setTime(studyTime);
     updateText(hours, minutes)
@@ -77,6 +78,23 @@ function start() {
     buttonContainer.appendChild(resetButton);
 }
 
+function setFunTime(time){
+    funTime = time;
+}
+
+function setStudyTime(time){
+    studyTime = time;
+}
+
+function readTimes(){
+    let [hours, minutes] = document.getElementById("studyTime").value.split(":");
+    setStudyTime(parseInt(parseInt(minutes) + (parseInt(hours) * 60)));  //(hours * 60);
+
+    [hours, minutes] = document.getElementById("funTime").value.split(":");
+    setFunTime(parseInt(parseInt(minutes) + (parseInt(hours) * 60)));  //(hours * 60);
+}
+
 function reset() {
-    //TODO
+    readTimes()
+    setTime(isStudying ? studyTime : funTime);
 }
