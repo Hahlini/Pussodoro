@@ -71,7 +71,7 @@ function start() {
     isStudying = true;
     setTime(studyTime);
     updateText(hours, minutes)
-    setInterval(tick, 10);
+    setInterval(tick, 1000);
     document.getElementById("topText").textContent = "Dags att jobba";
     //textBox.style.visibility = "visible";
     startButton.remove()
