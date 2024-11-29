@@ -7,33 +7,23 @@ let funTime = 15;
 
 let isStudying = true;
 
-
 const startButton = document.getElementById("button");
 const resetButton = document.createElement("button");
 const buttonContainer = document.getElementById("buttonContainer");
-const textBox = document.getElementById("textBox");
 const text = document.getElementById("text");
 
 resetButton.textContent = "Reset"
 resetButton.className = "button-1"
 resetButton.onclick = reset;
 
-
-/*
-function updateText(hours, minutes, seconds) {
-    hours = hours.toString().padStart(2, '0');
-    minutes = minutes.toString().padStart(2, '0');
-    seconds = seconds.toString().padStart(2, '0');
-
-    document.getElementById("timer").textContent = hours + ":" + minutes + ":" + seconds;
-}
-*/
-
 function updateText(hours, minutes) {
     hours = hours.toString().padStart(2, '0');
     minutes = minutes.toString().padStart(2, '0');
 
-    document.getElementById("timer").textContent = hours + ":" + minutes;
+    let text = hours + ":" + minutes;
+    
+    document.getElementById("title").textContent = text;
+    document.getElementById("timer").textContent = text;
 }
 
 function tick(){
@@ -55,6 +45,7 @@ function tick(){
 
 function switchMode(){
     document.getElementById("topText").textContent = isStudying ? "Ha så kul 😘" : "Dags att jobba";
+    document.getElementById("favicon").href = isStudying ? "./img/kiss.png" : "./img/writing.gif";
 
     setTime(isStudying ? funTime : studyTime);
     isStudying = !isStudying;
@@ -73,7 +64,7 @@ function start() {
     updateText(hours, minutes)
     setInterval(tick, 1000);
     document.getElementById("topText").textContent = "Dags att jobba";
-    //textBox.style.visibility = "visible";
+    document.getElementById("favicon").href ="./img/writing.gif";
     startButton.remove()
     buttonContainer.appendChild(resetButton);
 }
