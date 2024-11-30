@@ -39,21 +39,12 @@ input {
     accent-color: white;
 }
 
-.label {
-    position: relative;
-    top: -115px;
-}
-
 label {
     display: inline;
     font-size: min(7vw,30px);
     font-family: cherry bomb one;
     color: #FFA896;
-}
 
-
-input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
 }
 
 brand {
@@ -62,6 +53,12 @@ brand {
     font-size: max(10vw, min(70px, 17vw));
     font-family: cherry bomb one;
     color: #FFA896;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none; /* Disable default iOS appearance */
+    appearance: none;
 }
 
 timer {
@@ -76,12 +73,12 @@ text {
 }
 
 bottom {
-    width: 60%;
+    width: 80%;
     position: absolute;
-    top: 100vh;
+    top: max(100vh, 700px);
     border-top: 3px solid black;
     background-color: whitesmoke;
-    padding: 10px 20%;
+    padding: 10px 10%;
 }
 
 .button-1 {
