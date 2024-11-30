@@ -57,8 +57,10 @@ brand {
 
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
-    -webkit-appearance: none; /* Disable default iOS appearance */
-    appearance: none;
+}
+
+input[type="time"] {
+    -webkit-appearance: none;
 }
 
 timer {
