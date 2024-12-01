@@ -1,6 +1,3 @@
-let studyTime = 25;
-let funTime = 5;
-
 let isStudying = true;
 
 const startButton = document.getElementById("button");
@@ -68,30 +65,22 @@ function tick(){
     }
     updateText(hours, minutes)
     if (minutes == 0 && hours == 0) {
+        setTimer();
         switchMode();
     }
 }
 
 function switchMode(){
+    isStudying = !isStudying;
+
     document.getElementById("topText").textContent = isStudying ? "Ha så kul 😘" : "Dags att jobba";
     document.getElementById("favicon").href = isStudying ? "./img/kiss.png" : "./img/writing.gif";
     notifyUser(isStudying ? "Dags att ta en rast 😘" : "Sluta upp med stolleriet! Dags att jobba.");
-
-    setTime(isStudying ? funTime : studyTime);
-    isStudying = !isStudying;
-
-}
-
-function setTime(time){
-    hours = 0;
-    seconds = 59;
-    minutes = time
 }
 
 function start() {
-    readTimes()
     isStudying = true;
-    setTime(studyTime);
+    setTimer();
     updateText(hours, minutes);
     worker.postMessage('start');
     document.getElementById("topText").textContent = "Dags att jobba";
@@ -100,31 +89,23 @@ function start() {
     buttonContainer.appendChild(resetButton);
 }
 
-function setFunTime(time){
-    funTime = time;
-}
-
-function setStudyTime(time){
-    studyTime = time;
-}
-
-function readTimes(){
-    let [hours, minutes] = document.getElementById("studyTime").value.split(":");
-    setStudyTime(parseInt(parseInt(minutes) + (parseInt(hours) * 60)));  //(hours * 60);
-
-    [hours, minutes] = document.getElementById("funTime").value.split(":");
-    setFunTime(parseInt(parseInt(minutes) + (parseInt(hours) * 60)));  //(hours * 60);
+function setTimer(){
+    if (isStudying) {
+        [hours, minutes] = document.getElementById("studyTime").value.split(":"); 
+    } else {
+        [hours, minutes] = document.getElementById("funTime").value.split(":");
+    } 
+    seconds = 59;
 }
 
 function reset() {
-    readTimes()
-    setTime(isStudying ? studyTime : funTime);
+    setTimer();
 }
 
 function notifyUser(message) {
     if (Notification.permission === "granted") {
         new Notification(message);
     } else {
-        alert("Notification permission not granted. Can't send notification.");
+        alert(message);
     }
 }
