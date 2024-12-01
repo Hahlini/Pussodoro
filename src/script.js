@@ -53,6 +53,9 @@ function updateText(hours, minutes) {
 }
 
 function tick(){
+    if (minutes == 0 && hours == 0) {
+        switchMode();
+    }
     seconds--;
     if (seconds < 0) {
         seconds = 59;
@@ -63,18 +66,15 @@ function tick(){
         hours--;
         }
     }
-    updateText(hours, minutes)
-    if (minutes == 0 && hours == 0) {
-        setTimer();
-        switchMode();
-    }
+    updateText(hours, minutes);
 }
 
 function switchMode(){
     isStudying = !isStudying;
 
-    document.getElementById("topText").textContent = isStudying ? "Ha så kul 😘" : "Dags att jobba";
-    document.getElementById("favicon").href = isStudying ? "./img/kiss.png" : "./img/writing.gif";
+    setTimer();
+    document.getElementById("topText").textContent = isStudying ? "Dags att jobba" : "Ha så kul 😘";
+    document.getElementById("favicon").href = isStudying ? "./img/writing.gif" : "./img/kiss.png";
     notifyUser(isStudying ? "Dags att ta en rast 😘" : "Sluta upp med stolleriet! Dags att jobba.");
 }
 
