@@ -70,13 +70,13 @@ function tick(){
 }
 
 function switchMode(){
-    notifyUser(isStudying ? "Dags att ta en rast 😘" : "Sluta upp med stolleriet! Dags att jobba.");
     
     isStudying = !isStudying;
-
+    
     setTimer(hours, minutes);
     document.getElementById("topText").textContent = isStudying ? "Dags att jobba" : "Ha så kul 😘";
     document.getElementById("favicon").href = isStudying ? "./img/writing.gif" : "./img/kiss.png";
+    notifyUser(isStudying ? "Sluta upp med stolleriet! Dags att jobba." : "Dags att ta en rast 😘");
 }
 
 function start() {
@@ -104,6 +104,8 @@ function reset() {
 }
 
 function notifyUser(message) {
+
+    
     if (Notification.permission === "granted") {
         new Notification(message);
     } else {
