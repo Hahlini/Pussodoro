@@ -35,6 +35,16 @@ worker.onmessage = (e) => {
     tick();
 }
 
+if (Notification.permission !== "granted") {
+    Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+            console.log("Notification permission granted.");
+        } else {
+            console.log("Notification permission denied.");
+        }
+    });
+}
+
 function updateText(hours, minutes) {
     hours = hours.toString().padStart(2, '0');
     minutes = minutes.toString().padStart(2, '0');
@@ -65,9 +75,11 @@ function tick(){
 function switchMode(){
     document.getElementById("topText").textContent = isStudying ? "Ha så kul 😘" : "Dags att jobba";
     document.getElementById("favicon").href = isStudying ? "./img/kiss.png" : "./img/writing.gif";
+    notifyUser(isStudying ? "Dags att ta en rast 😘" : "Sluta upp med stolleriet! Dags att jobba.");
 
     setTime(isStudying ? funTime : studyTime);
     isStudying = !isStudying;
+
 }
 
 function setTime(time){
@@ -80,11 +92,11 @@ function start() {
     readTimes()
     isStudying = true;
     setTime(studyTime);
-    updateText(hours, minutes)
+    updateText(hours, minutes);
     worker.postMessage('start');
     document.getElementById("topText").textContent = "Dags att jobba";
     document.getElementById("favicon").href ="./img/writing.gif";
-    startButton.remove()
+    startButton.remove();
     buttonContainer.appendChild(resetButton);
 }
 
@@ -107,4 +119,12 @@ function readTimes(){
 function reset() {
     readTimes()
     setTime(isStudying ? studyTime : funTime);
+}
+
+function notifyUser(message) {
+    if (Notification.permission === "granted") {
+        new Notification(message);
+    } else {
+        alert("Notification permission not granted. Can't send notification.");
+    }
 }
