@@ -53,29 +53,30 @@ function updateText(hours, minutes) {
 }
 
 function tick(){
-    if (minutes == 0 && hours == 0) {
-        switchMode();
-    }
     seconds--;
     if (seconds < 0) {
         seconds = 59;
         minutes--;
-
+        
         if (minutes < 0) {
-        minutes = 59;
-        hours--;
+            minutes = 59;
+            hours--;
         }
     }
     updateText(hours, minutes);
+    if (minutes == 0 && hours == 0 && seconds == 58) {
+        switchMode();
+    }
 }
 
 function switchMode(){
+    notifyUser(isStudying ? "Dags att ta en rast 😘" : "Sluta upp med stolleriet! Dags att jobba.");
+    
     isStudying = !isStudying;
 
-    setTimer();
+    setTimer(hours, minutes);
     document.getElementById("topText").textContent = isStudying ? "Dags att jobba" : "Ha så kul 😘";
     document.getElementById("favicon").href = isStudying ? "./img/writing.gif" : "./img/kiss.png";
-    notifyUser(isStudying ? "Dags att ta en rast 😘" : "Sluta upp med stolleriet! Dags att jobba.");
 }
 
 function start() {
