@@ -1,9 +1,5 @@
-let hours = 0;
-let minutes = 0
-let seconds = 0;
-
-let studyTime = 45;
-let funTime = 15;
+let studyTime = 25;
+let funTime = 5;
 
 let isStudying = true;
 
@@ -12,9 +8,32 @@ const resetButton = document.createElement("button");
 const buttonContainer = document.getElementById("buttonContainer");
 const text = document.getElementById("text");
 
+
 resetButton.textContent = "Reset"
 resetButton.className = "button-1"
 resetButton.onclick = reset;
+
+const workerScript = `
+    let startTime = null;
+
+    onmessage = (e) => {
+        if (e.data === 'start') {
+            startTime = Date.now();
+            setInterval(() => {
+                const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+                postMessage(elapsedTime);
+            }, 1000);
+        }
+    }
+`;
+
+const blob = new Blob([workerScript], { type: 'application/javascript' });
+const workerURL = URL.createObjectURL(blob);
+const worker = new Worker(workerURL);
+
+worker.onmessage = (e) => {
+    tick();
+}
 
 function updateText(hours, minutes) {
     hours = hours.toString().padStart(2, '0');
@@ -62,7 +81,7 @@ function start() {
     isStudying = true;
     setTime(studyTime);
     updateText(hours, minutes)
-    setInterval(tick, 1000);
+    worker.postMessage('start');
     document.getElementById("topText").textContent = "Dags att jobba";
     document.getElementById("favicon").href ="./img/writing.gif";
     startButton.remove()
