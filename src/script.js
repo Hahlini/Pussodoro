@@ -3,11 +3,8 @@ let isStudying = true;
 const startButton = document.getElementById("button");
 const resetButton = document.createElement("button");
 const buttonContainer = document.getElementById("buttonContainer");
-const text = document.getElementById("text");
-
-
 resetButton.textContent = "Reset"
-resetButton.className = "button-1"
+resetButton.className = "button"
 resetButton.onclick = reset;
 
 const workerScript = `
@@ -70,7 +67,6 @@ function tick(){
 }
 
 function switchMode(){
-    
     isStudying = !isStudying;
     
     setTimer(hours, minutes);
@@ -104,8 +100,6 @@ function reset() {
 }
 
 function notifyUser(message) {
-
-    
     if (Notification.permission === "granted") {
         new Notification(message);
     } else {

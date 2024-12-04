@@ -1,3 +1,11 @@
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, #cd1c18, #9b1313);
+    color: #38000A;
+    font-family: Lora;
+}
+
 box {
     background-color: #FFA896;
     width: 70%;
@@ -7,11 +15,12 @@ box {
     opacity: 90%;
 }
 
-body {
-    margin: 0;
-    background: linear-gradient(to right, #cd1c18, #9b1313);
-    color: #38000A;
-    font-family: Lora;
+brand {
+    max-width: 100%;
+    display: block;
+    font-size: max(10vw, min(70px, 17vw));
+    font-family: cherry bomb one;
+    color: #FFA896;
 }
 
 .item {
@@ -21,6 +30,64 @@ body {
     padding: 15px;
     text-align: center;
     display: block;
+}
+
+label {
+    display: inline;
+    font-size: min(7vw,30px);
+    font-family: cherry bomb one;
+    color: #FFA896;
+
+}
+
+timer {
+    display: block;
+    font-size: 400%;
+    padding-top: 10px;
+}
+
+
+bottom {
+    width: 80%;
+    position: absolute;
+    top: max(100vh, 700px);
+    border-top: 3px solid black;
+    background-color: whitesmoke;
+    padding: 10px 10%;
+}
+
+.button {
+    background-color: #cd1c18;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFA896;
+    cursor: pointer;
+    display: inline-block;
+    font-family: lora;
+    font-size: 30px;
+    font-weight: 500;
+    height: 60px;
+    line-height: 30px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 15px; 
+    margin-bottom: 10px
+}
+
+.button:hover,
+.button:focus {
+    background-color: #F082AC;
 }
 
 input {
@@ -39,22 +106,6 @@ input {
     accent-color: white;
 }
 
-label {
-    display: inline;
-    font-size: min(7vw,30px);
-    font-family: cherry bomb one;
-    color: #FFA896;
-
-}
-
-brand {
-    max-width: 100%;
-    display: block;
-    font-size: max(10vw, min(70px, 17vw));
-    font-family: cherry bomb one;
-    color: #FFA896;
-}
-
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -68,65 +119,15 @@ input[type="time"]::-webkit-datetime-edit-ampm-field {
     color: #38000A;
 }
 
-timer {
-    display: block;
-    font-size: 400%;
-    padding-top: 10px;
-}
-
 text {
     font-size: xx-large;
     line-height: 45px;
 }
 
-bottom {
-    width: 80%;
-    position: absolute;
-    top: max(100vh, 700px);
-    border-top: 3px solid black;
-    background-color: whitesmoke;
-    padding: 10px 10%;
-}
-
-.button-1 {
-  background-color: #cd1c18;
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFA896;
-  cursor: pointer;
-  display: inline-block;
-  font-family: lora;
-  font-size: 30px;
-  font-weight: 500;
-  height: 60px;
-  line-height: 30px;
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 10px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: color 100ms;
-  vertical-align: baseline;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-top: 15px; 
-  margin-bottom: 10px
-}
-
-.button-1:hover,
-.button-1:focus {
-  background-color: #F082AC;
-}
-
 h1 {
     color: #9b1313;
     font-family: rubik;
-    font-weight: 500;
-
+    font-weight: 500; 
 }
 
 p {
