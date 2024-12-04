@@ -73,19 +73,20 @@ function switchMode(){
 function start() {
     isStudying = true;
     setTimer();
-    updateText(minutes, seconds);
-    worker.postMessage('start');
     document.getElementById("topText").textContent = "Dags att jobba";
     document.getElementById("favicon").href ="./img/writing.gif";
     startButton.remove();
     buttonContainer.appendChild(resetButton);
+    worker.postMessage('start');
 }
 
 function setTimer(){
     if (isStudying) {
-        [minutes, seconds] = document.getElementById("studyTime").value.split(":"); 
+        minutes = document.getElementById("studyMinutes").value; 
+        seconds = document.getElementById("studySeconds").value;
     } else {
-        [minutes, seconds] = document.getElementById("funTime").value.split(":");
+        minutes = document.getElementById("funMinutes").value; 
+        seconds = document.getElementById("funSeconds").value;
     } 
 }
 

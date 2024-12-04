@@ -14,7 +14,7 @@ const watch = (element) => {
     })
 }
 
-watch(document.getElementById("funHour"));
-watch(document.getElementById("funMinute"));
-watch(document.getElementById("studyHour"));
-watch(document.getElementById("studyMinute"));
+watch(document.getElementById("funMinutes"));
+watch(document.getElementById("funSeconds"));
+watch(document.getElementById("studyMinutes"));
+watch(document.getElementById("studySeconds"));
