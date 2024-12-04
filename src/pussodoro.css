@@ -26,18 +26,32 @@ brand {
 .item {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
-    padding: 15px;
+    padding: 15px 0px;
     text-align: center;
     display: block;
 }
 
 label {
     display: inline;
-    font-size: min(7vw,30px);
+    font-size: min(9vw,40px);
     font-family: cherry bomb one;
     color: #FFA896;
 
+}
+
+.timeSelect {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 70vw;
+    max-width: 500px;
+    align-items: center;
+    column-gap: 8vw;
+}
+
+timeSelect{
+    vertical-align: middle;
 }
 
 timer {
@@ -90,34 +104,33 @@ bottom {
     background-color: #F082AC;
 }
 
-input {
-    display: block-inline;
+.inputTime {
     background-color: #FFA896;
-    width: 30%;
-    max-width: 200px;
-    height: 50px;
     border-radius: 30px;
+    font-size: min(9vw,45px);
+    padding: 10px;
+
+
+}
+
+input {
+    background-color: #FFA896;
+    width: 40%;
+    max-width: 60px;
+    height: 50px;
     font-size: min(9vw,45px);
     border-width: 0px;
     text-align: center;
-    padding: 10px;
     color: #38000A;
     font-family: Lora;
     accent-color: white;
+    margin: 0px;
+    padding: 0px;
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
-input[type="time"] {
+input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-}
-
-input[type="time"]::-webkit-datetime-edit-minute-field,
-input[type="time"]::-webkit-datetime-edit-ampm-field {
-    color: #38000A;
-}
+  }
 
 text {
     font-size: xx-large;

@@ -35,16 +35,20 @@
     </box>
 
     <div class="item">
-        <div class="label">
-            <label style="padding-right:min(22%, 230px);">
-                Plugga
-            </label>
-            <label>
-                Ha kul
-            </label>
-        </div>
-        <input type="time" id="studyTime" placeholder="Enter a number" value="25:00" style="margin-right: min(10%, 100px)">
-        <input type="time" id="funTime" placeholder="Enter a number" value="05:00">
+        <timeSelect class="timeSelect">
+            <label class="grid-item">Plugga</label>
+            <label class="grid-item">Ha kul</label>
+            <div class="grid-item">
+                <div class="inputTime">
+                    <input type="text" id="studyHour" value="25" inputmode="numeric">:<input type="text" id="studyMinute" value="00" inputmode="numeric">
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="inputTime">
+                    <input type="text" id="funHour" value="05" inputmode="numeric">:<input type="text" id="funMinute" value="00" inputmode="numeric">
+                </div>
+            </div>
+        </timeSelect>
     </div>
 
 
@@ -71,5 +75,6 @@
     </bottom>
 
     <script src="./src/script.js"></script>
+    <script src="./src/inputControl.js"></script>
 </body>
 </html>
