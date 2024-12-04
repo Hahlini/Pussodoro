@@ -39,11 +39,11 @@ if (Notification.permission !== "granted") {
     });
 }
 
-function updateText(hours, minutes) {
-    hours = hours.toString().padStart(2, '0');
+function updateText(minutes, seconds) {
     minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
 
-    let text = hours + ":" + minutes;
+    let text = minutes + ":" + seconds;
     
     document.getElementById("title").textContent = text;
     document.getElementById("timer").textContent = text;
@@ -54,14 +54,9 @@ function tick(){
     if (seconds < 0) {
         seconds = 59;
         minutes--;
-        
-        if (minutes < 0) {
-            minutes = 59;
-            hours--;
-        }
     }
-    updateText(hours, minutes);
-    if (minutes == 0 && hours == 0 && seconds == 58) {
+    updateText(minutes, seconds);
+    if (minutes == 0 && seconds == 0) {
         switchMode();
     }
 }
@@ -69,7 +64,7 @@ function tick(){
 function switchMode(){
     isStudying = !isStudying;
     
-    setTimer(hours, minutes);
+    setTimer(minutes, seconds);
     document.getElementById("topText").textContent = isStudying ? "Dags att jobba" : "Ha så kul 😘";
     document.getElementById("favicon").href = isStudying ? "./img/writing.gif" : "./img/kiss.png";
     notifyUser(isStudying ? "Sluta upp med stolleriet! Dags att jobba." : "Dags att ta en rast 😘");
@@ -78,7 +73,7 @@ function switchMode(){
 function start() {
     isStudying = true;
     setTimer();
-    updateText(hours, minutes);
+    updateText(minutes, seconds);
     worker.postMessage('start');
     document.getElementById("topText").textContent = "Dags att jobba";
     document.getElementById("favicon").href ="./img/writing.gif";
@@ -88,11 +83,10 @@ function start() {
 
 function setTimer(){
     if (isStudying) {
-        [hours, minutes] = document.getElementById("studyTime").value.split(":"); 
+        [minutes, seconds] = document.getElementById("studyTime").value.split(":"); 
     } else {
-        [hours, minutes] = document.getElementById("funTime").value.split(":");
+        [minutes, seconds] = document.getElementById("funTime").value.split(":");
     } 
-    seconds = 59;
 }
 
 function reset() {
