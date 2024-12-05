@@ -3,7 +3,8 @@ const watch = (element) => {
         const cursorPosition = element.selectionStart;
         let value = element.value; 
         value = value.replace(/\D/g, '');
-        value = value.padStart(2, '0');
+        value = value.slice(0, cursorPosition);
+        value = value.padEnd(2, '0');
         value = value.slice(-2);
         if (value > 60) {
             value = "60";
