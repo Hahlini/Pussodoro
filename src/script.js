@@ -73,6 +73,7 @@ function switchMode(){
 function start() {
     isStudying = true;
     setTimer();
+    updateText(minutes, seconds);
     document.getElementById("topText").textContent = "Dags att jobba";
     document.getElementById("favicon").href ="./img/writing.gif";
     startButton.remove();
